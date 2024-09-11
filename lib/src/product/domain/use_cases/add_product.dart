@@ -1,12 +1,27 @@
 import 'package:equatable/equatable.dart';
 import 'package:klontong/core/use_case/use_case.dart';
 import 'package:klontong/core/utils/typedef.dart';
+import 'package:klontong/src/product/domain/repositories/product_repository.dart';
 
 class AddProduct extends UseCaseWithParams<void, AddProductParams> {
+  AddProduct(this.productRepository);
+
+  final ProductRepository productRepository;
+
   @override
   ResultFuture<void> call(AddProductParams params) {
-    // TODO: implement call
-    throw UnimplementedError();
+    return productRepository.addProduct(
+      categoryId: params.categoryId,
+      categoryName: params.categoryName,
+      sku: params.sku,
+      name: params.name,
+      description: params.description,
+      weight: params.weight,
+      width: params.width,
+      length: params.length,
+      height: params.height,
+      image: params.image,
+    );
   }
 }
 
@@ -23,6 +38,20 @@ class AddProductParams extends Equatable {
     required this.height,
     required this.image,
   });
+
+  const AddProductParams.empty()
+      : this(
+          categoryId: 14,
+          categoryName: '_empty.categoryName',
+          sku: '_empty.sku',
+          name: '_empty.name',
+          description: '_empty.description',
+          weight: 0,
+          width: 0,
+          length: 0,
+          height: 0,
+          image: '_empty.image',
+        );
 
   final int categoryId;
   final String categoryName;

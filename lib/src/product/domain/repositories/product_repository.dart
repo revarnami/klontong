@@ -2,18 +2,18 @@ import 'package:klontong/core/utils/typedef.dart';
 import 'package:klontong/src/product/domain/entities/product.dart';
 
 abstract class ProductRepository {
-  ResultVoid addProduct(
-    String categoryId,
-    String categoryName,
-    String sku,
-    String name,
-    String description,
-    String weight,
-    String width,
-    String length,
-    String height,
-    String image,
-  );
+  ResultVoid addProduct({
+    required int categoryId,
+    required String categoryName,
+    required String sku,
+    required String name,
+    required String description,
+    required int weight,
+    required int width,
+    required int length,
+    required int height,
+    required String image,
+  });
 
   ResultFuture<List<Product>> getProducts();
 

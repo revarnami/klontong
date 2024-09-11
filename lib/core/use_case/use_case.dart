@@ -1,4 +1,3 @@
-
 import 'package:klontong/core/utils/typedef.dart';
 
 abstract class UseCaseWithParams<T, Params> {
