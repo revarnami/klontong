@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:klontong/core/utils/typedef.dart';
 import 'package:klontong/src/product/data/models/product_model.dart';
 import 'package:klontong/src/product/domain/entities/product.dart';
 
