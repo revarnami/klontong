@@ -11,17 +11,18 @@ class AddProduct extends UseCaseWithParams<void, AddProductParams> {
   @override
   ResultFuture<void> call(AddProductParams params) {
     return productRepository.addProduct(
-        categoryId: params.categoryId,
-        categoryName: params.categoryName,
-        sku: params.sku,
-        name: params.name,
-        description: params.description,
-        weight: params.weight,
-        width: params.width,
-        length: params.length,
-        height: params.height,
-        image: params.image,
-        price: params.price,);
+      categoryId: params.categoryId,
+      categoryName: params.categoryName,
+      sku: params.sku,
+      name: params.name,
+      description: params.description,
+      weight: params.weight,
+      width: params.width,
+      length: params.length,
+      height: params.height,
+      image: params.image,
+      price: params.price,
+    );
   }
 }
 

@@ -42,19 +42,21 @@ void main() {
     test('Should call [ProductRemoteDataSource.addProduct] and return Success',
         () async {
       //Arrange
-      when(() => productRemoteDataSource.addProduct(
-            categoryId: any(named: 'categoryId'),
-            categoryName: any(named: 'categoryName'),
-            sku: any(named: 'sku'),
-            name: any(named: 'name'),
-            description: any(named: 'description'),
-            weight: any(named: 'weight'),
-            width: any(named: 'width'),
-            length: any(named: 'length'),
-            height: any(named: 'height'),
-            image: any(named: 'image'),
-            price: any(named: 'price'),
-          ),).thenAnswer((_) async => Future.value());
+      when(
+        () => productRemoteDataSource.addProduct(
+          categoryId: any(named: 'categoryId'),
+          categoryName: any(named: 'categoryName'),
+          sku: any(named: 'sku'),
+          name: any(named: 'name'),
+          description: any(named: 'description'),
+          weight: any(named: 'weight'),
+          width: any(named: 'width'),
+          length: any(named: 'length'),
+          height: any(named: 'height'),
+          image: any(named: 'image'),
+          price: any(named: 'price'),
+        ),
+      ).thenAnswer((_) async => Future.value());
       //Act
       final result = await productRepositoryImplementation.addProduct(
         categoryId: categoryId,
@@ -93,19 +95,21 @@ void main() {
         'Should call [ProductRemoteDataSource.addProduct] and return [Failure]',
         () async {
       //Arrange
-      when(() => productRemoteDataSource.addProduct(
-            categoryId: any(named: 'categoryId'),
-            categoryName: any(named: 'categoryName'),
-            sku: any(named: 'sku'),
-            name: any(named: 'name'),
-            description: any(named: 'description'),
-            weight: any(named: 'weight'),
-            width: any(named: 'width'),
-            length: any(named: 'length'),
-            height: any(named: 'height'),
-            image: any(named: 'image'),
-            price: any(named: 'price'),
-          ),).thenThrow(mException);
+      when(
+        () => productRemoteDataSource.addProduct(
+          categoryId: any(named: 'categoryId'),
+          categoryName: any(named: 'categoryName'),
+          sku: any(named: 'sku'),
+          name: any(named: 'name'),
+          description: any(named: 'description'),
+          weight: any(named: 'weight'),
+          width: any(named: 'width'),
+          length: any(named: 'length'),
+          height: any(named: 'height'),
+          image: any(named: 'image'),
+          price: any(named: 'price'),
+        ),
+      ).thenThrow(mException);
       //Act
       final result = await productRepositoryImplementation.addProduct(
         categoryId: categoryId,
@@ -123,9 +127,11 @@ void main() {
       //Assert
       expect(
         result,
-        equals(Left<APIFailure, dynamic>(
-          APIFailure.fromAPIException(mException),
-        ),),
+        equals(
+          Left<APIFailure, dynamic>(
+            APIFailure.fromAPIException(mException),
+          ),
+        ),
       );
       verify(
         () => productRemoteDataSource.addProduct(
@@ -157,8 +163,10 @@ void main() {
       //Act
       final result = await productRepositoryImplementation.getProducts();
       //Assert
-      expect(result,
-          equals(const Right<dynamic, List<ProductModel>>(listProducts)),);
+      expect(
+        result,
+        equals(const Right<dynamic, List<ProductModel>>(listProducts)),
+      );
       verify(
         () => productRemoteDataSource.getProducts(),
       ).called(1);
@@ -175,9 +183,11 @@ void main() {
       //Assert
       expect(
         result,
-        equals(Left<APIFailure, dynamic>(
-          APIFailure.fromAPIException(mException),
-        ),),
+        equals(
+          Left<APIFailure, dynamic>(
+            APIFailure.fromAPIException(mException),
+          ),
+        ),
       );
       verify(
         () => productRemoteDataSource.getProducts(),

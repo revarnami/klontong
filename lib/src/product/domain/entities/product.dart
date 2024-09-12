@@ -18,18 +18,19 @@ class Product extends Equatable {
 
   const Product.empty()
       : this(
-            id: '1',
-            categoryId: 14,
-            categoryName: '_empty.categoryName',
-            sku: '_empty.sku',
-            name: '_empty.name',
-            description: '_empty.description',
-            weight: 0,
-            width: 0,
-            length: 0,
-            height: 0,
-            image: '_empty.image',
-            price: 0,);
+          id: '1',
+          categoryId: 14,
+          categoryName: '_empty.categoryName',
+          sku: '_empty.sku',
+          name: '_empty.name',
+          description: '_empty.description',
+          weight: 0,
+          width: 0,
+          length: 0,
+          height: 0,
+          image: '_empty.image',
+          price: 0,
+        );
 
   final String id;
   final int categoryId;
