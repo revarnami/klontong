@@ -21,17 +21,17 @@ void main() {
     //Arrange
     when(
       () => productRepository.addProduct(
-        categoryId: any(named: 'categoryId'),
-        categoryName: any(named: 'categoryName'),
-        sku: any(named: 'sku'),
-        name: any(named: 'name'),
-        description: any(named: 'description'),
-        weight: any(named: 'weight'),
-        width: any(named: 'width'),
-        length: any(named: 'length'),
-        height: any(named: 'height'),
-        image: any(named: 'image'),
-      ),
+          categoryId: any(named: 'categoryId'),
+          categoryName: any(named: 'categoryName'),
+          sku: any(named: 'sku'),
+          name: any(named: 'name'),
+          description: any(named: 'description'),
+          weight: any(named: 'weight'),
+          width: any(named: 'width'),
+          length: any(named: 'length'),
+          height: any(named: 'height'),
+          image: any(named: 'image'),
+          price: any(named: 'price'),),
     ).thenAnswer((_) async => const Right(null));
     //Act
     final result = await addProductUseCase.call(params);
@@ -39,17 +39,17 @@ void main() {
     expect(result, equals(const Right<dynamic, void>(null)));
     verify(
       () => productRepository.addProduct(
-        categoryId: params.categoryId,
-        categoryName: params.categoryName,
-        sku: params.sku,
-        name: params.name,
-        description: params.description,
-        weight: params.weight,
-        width: params.width,
-        length: params.length,
-        height: params.height,
-        image: params.image,
-      ),
+          categoryId: params.categoryId,
+          categoryName: params.categoryName,
+          sku: params.sku,
+          name: params.name,
+          description: params.description,
+          weight: params.weight,
+          width: params.width,
+          length: params.length,
+          height: params.height,
+          image: params.image,
+          price: params.price,),
     ).called(1);
     verifyNoMoreInteractions(productRepository);
   });

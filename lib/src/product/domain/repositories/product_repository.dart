@@ -13,6 +13,7 @@ abstract class ProductRepository {
     required int length,
     required int height,
     required String image,
+    required int price,
   });
 
   ResultFuture<List<Product>> getProducts();

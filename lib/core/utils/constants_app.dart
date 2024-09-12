@@ -1,3 +1,2 @@
-mixin SharedPreferecesKeys {
-  static const IS_LOGGED_IN = 'IS_LOGGED_IN';
-}
+const baseUrl = 'https://66e075472fb67ac16f29afc4.mockapi.io/api/v1';
+const productEndPoint = '/products';

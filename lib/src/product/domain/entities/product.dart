@@ -13,24 +13,25 @@ class Product extends Equatable {
     required this.length,
     required this.height,
     required this.image,
+    required this.price,
   });
 
   const Product.empty()
       : this(
-          id: 1,
-          categoryId: 14,
-          categoryName: '_empty.categoryName',
-          sku: '_empty.sku',
-          name: '_empty.name',
-          description: '_empty.description',
-          weight: 0,
-          width: 0,
-          length: 0,
-          height: 0,
-          image: '_empty.image',
-        );
+            id: '1',
+            categoryId: 14,
+            categoryName: '_empty.categoryName',
+            sku: '_empty.sku',
+            name: '_empty.name',
+            description: '_empty.description',
+            weight: 0,
+            width: 0,
+            length: 0,
+            height: 0,
+            image: '_empty.image',
+            price: 0,);
 
-  final int id;
+  final String id;
   final int categoryId;
   final String categoryName;
   final String sku;
@@ -41,6 +42,7 @@ class Product extends Equatable {
   final int length;
   final int height;
   final String image;
+  final int price;
 
   @override
   List<Object?> get props => [id];

@@ -11,17 +11,17 @@ class AddProduct extends UseCaseWithParams<void, AddProductParams> {
   @override
   ResultFuture<void> call(AddProductParams params) {
     return productRepository.addProduct(
-      categoryId: params.categoryId,
-      categoryName: params.categoryName,
-      sku: params.sku,
-      name: params.name,
-      description: params.description,
-      weight: params.weight,
-      width: params.width,
-      length: params.length,
-      height: params.height,
-      image: params.image,
-    );
+        categoryId: params.categoryId,
+        categoryName: params.categoryName,
+        sku: params.sku,
+        name: params.name,
+        description: params.description,
+        weight: params.weight,
+        width: params.width,
+        length: params.length,
+        height: params.height,
+        image: params.image,
+        price: params.price,);
   }
 }
 
@@ -37,6 +37,7 @@ class AddProductParams extends Equatable {
     required this.length,
     required this.height,
     required this.image,
+    required this.price,
   });
 
   const AddProductParams.empty()
@@ -51,6 +52,7 @@ class AddProductParams extends Equatable {
           length: 0,
           height: 0,
           image: '_empty.image',
+          price: 0,
         );
 
   final int categoryId;
@@ -62,6 +64,7 @@ class AddProductParams extends Equatable {
   final int width;
   final int length;
   final int height;
+  final int price;
   final String image;
 
   @override
