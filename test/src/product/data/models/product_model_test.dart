@@ -19,7 +19,7 @@ void main() {
   group('fromJson', () {
     test('Should return a [ProductModel] with right data', () {
       //Act
-      final result = ProductModel.fromJson(json);
+      final result = ProductModel.fromJsonObject(json);
       //Assert
       expect(result, equals(mModel));
     });
@@ -28,7 +28,7 @@ void main() {
   group('toJson', () {
     test('Should return a [Json] with right data', () {
       //Act
-      final result = mModel.toJson();
+      final result = mModel.toJsonObject();
       final mJson = jsonEncode({
         'id': '1',
         'categoryId': 14,

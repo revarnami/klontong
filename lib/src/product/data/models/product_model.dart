@@ -37,7 +37,7 @@ class ProductModel extends Product {
           price: map['price'] as int,
         );
 
-  factory ProductModel.fromJson(String json) =>
+  factory ProductModel.fromJsonObject(String json) =>
       ProductModel.fromMap(jsonDecode(json) as DataMap);
 
   DataMap toMap() => {
@@ -55,7 +55,7 @@ class ProductModel extends Product {
         'price': price,
       };
 
-  String toJson() => jsonEncode(toMap());
+  String toJsonObject() => jsonEncode(toMap());
 
   ProductModel copyWith({
     String? id,
