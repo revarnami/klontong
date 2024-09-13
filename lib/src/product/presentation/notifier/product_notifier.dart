@@ -4,9 +4,7 @@ import 'package:klontong/src/product/domain/use_cases/add_product.dart';
 import 'package:klontong/src/product/domain/use_cases/get_products.dart';
 
 class ProductNotifier with ChangeNotifier {
-  ProductNotifier({required this.addProduct, required this.getProducts}) {
-    gettingProducts();
-  }
+  ProductNotifier({required this.addProduct, required this.getProducts});
 
   final AddProduct addProduct;
   final GetProducts getProducts;

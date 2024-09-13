@@ -26,6 +26,13 @@ class _ListProductScreenState extends State<ListProductScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => context.read<ProductNotifier>().gettingProducts(),);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final listProduct = context.watch<ProductNotifier>().filteredProduct;
 
