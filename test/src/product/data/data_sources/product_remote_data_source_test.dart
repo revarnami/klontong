@@ -31,8 +31,13 @@ void main() {
 
   group('addProduct', () {
     test('Should complete successfully when status code is 200', () async {
-      when(() => client.post(any(), body: any(named: 'body')))
-          .thenAnswer((_) async => response);
+      when(
+        () => client.post(
+          any(),
+          body: any(named: 'body'),
+          headers: any(named: 'headers'),
+        ),
+      ).thenAnswer((_) async => response);
       final methodCall = productRDSImplementation.addProduct;
       expect(
         methodCall(
@@ -66,14 +71,20 @@ void main() {
             'image': 'image',
             'price': 0,
           }),
+          headers: {'Content-Type': 'application/json'},
         ),
       ).called(1);
       verifyNoMoreInteractions(client);
     });
 
     test('Should throw [APIException] when status code is not 200', () async {
-      when(() => client.post(any(), body: any(named: 'body')))
-          .thenAnswer((_) async => errorResponse);
+      when(
+        () => client.post(
+          any(),
+          body: any(named: 'body'),
+          headers: any(named: 'headers'),
+        ),
+      ).thenAnswer((_) async => errorResponse);
       final methodCall = productRDSImplementation.addProduct;
       expect(
         () async => methodCall(
@@ -107,6 +118,7 @@ void main() {
             'image': 'image',
             'price': 0,
           }),
+          headers: {'Content-Type': 'application/json'},
         ),
       ).called(1);
       verifyNoMoreInteractions(client);

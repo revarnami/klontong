@@ -59,6 +59,7 @@ class ProductRDSImplementation implements ProductRemoteDataSource {
           'image': image,
           'price': price,
         }),
+        headers: {'Content-Type': 'application/json'},
       );
       if (response.statusCode != 200) {
         throw APIException(
