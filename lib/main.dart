@@ -7,6 +7,7 @@ import 'package:klontong/src/product/domain/use_cases/add_product.dart';
 import 'package:klontong/src/product/domain/use_cases/get_products.dart';
 import 'package:klontong/src/product/presentation/notifier/product_notifier.dart';
 import 'package:klontong/src/product/presentation/screens/list_product_screen.dart';
+import 'package:klontong/src/product/presentation/screens/product_detail_screen.dart';
 import 'package:provider/provider.dart';
 
 part 'main.g.dart';
@@ -87,21 +88,23 @@ class ProductRoute extends GoRouteData {
         ),
         child: const ListProductScreen(),
       );
-// @override
-// CustomTransitionPage<void> buildPage(
-//     BuildContext context, GoRouterState state) {
-//   return CustomTransitionPage<void>(
-//     key: state.pageKey,
-//     child: ChangeNotifierProvider(
-//       create: (_) => ProductNotifier(
-//         addProduct: sl<AddProduct>(),
-//         getProducts: sl<GetProducts>(),
-//       ),
-//       child: const ListProductScreen(),
-//     ),
-//     transitionsBuilder: (context, animation, animation2, child) {
-//       return _slideTransitionPage(animation, child);
-//     },
-//   );
-// }
+}
+
+@TypedGoRoute<ProductDetailRoute>(
+  path: '/product-detail',
+)
+class ProductDetailRoute extends GoRouteData {
+  const ProductDetailRoute(this.imageUrl, this.productName, this.price);
+
+  final String imageUrl;
+  final String productName;
+  final int price;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      ProductDetailScreen(
+        imageUrl: imageUrl,
+        productName: productName,
+        price: price,
+      );
 }

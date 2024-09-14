@@ -8,6 +8,7 @@ part of 'main.dart';
 
 List<RouteBase> get $appRoutes => [
       $productRoute,
+      $productDetailRoute,
     ];
 
 RouteBase get $productRoute => GoRouteData.$route(
@@ -20,6 +21,38 @@ extension $ProductRouteExtension on ProductRoute {
 
   String get location => GoRouteData.$location(
         '/',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $productDetailRoute => GoRouteData.$route(
+      path: '/product-detail',
+      factory: $ProductDetailRouteExtension._fromState,
+    );
+
+extension $ProductDetailRouteExtension on ProductDetailRoute {
+  static ProductDetailRoute _fromState(GoRouterState state) =>
+      ProductDetailRoute(
+        state.uri.queryParameters['image-url']!,
+        state.uri.queryParameters['product-name']!,
+        int.parse(state.uri.queryParameters['price']!),
+      );
+
+  String get location => GoRouteData.$location(
+        '/product-detail',
+        queryParams: {
+          'image-url': imageUrl,
+          'product-name': productName,
+          'price': price.toString(),
+        },
       );
 
   void go(BuildContext context) => context.go(location);

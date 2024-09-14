@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:klontong/core/services/injection_container.dart';
+import 'package:klontong/main.dart';
 import 'package:klontong/src/product/domain/use_cases/add_product.dart';
 import 'package:klontong/src/product/domain/use_cases/get_products.dart';
 import 'package:klontong/src/product/presentation/notifier/product_notifier.dart';
@@ -75,6 +77,15 @@ class _ListProductScreenState extends State<ListProductScreen> {
                     itemBuilder: (context, index) {
                       final product = listProduct[index];
                       return ListTile(
+                        onTap: () {
+                          context.push(
+                            ProductDetailRoute(
+                              product.image,
+                              product.name,
+                              product.price,
+                            ).location,
+                          );
+                        },
                         leading: Image.network(product.image),
                         title: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
