@@ -3,7 +3,10 @@ import 'package:go_router/go_router.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   const ProductDetailScreen({
-    required this.imageUrl, required this.productName, required this.price, super.key,
+    required this.imageUrl,
+    required this.productName,
+    required this.price,
+    super.key,
   });
 
   final String imageUrl;
