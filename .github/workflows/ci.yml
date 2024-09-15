@@ -1,4 +1,4 @@
-name: "Build Tracking Stuff App"
+name: "Build Klontong App"
 
 on:
   # Runs this action when you push on master
