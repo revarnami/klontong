@@ -18,6 +18,12 @@ class ListProductScreen extends StatefulWidget {
 class _ListProductScreenState extends State<ListProductScreen> {
   final searchController = TextEditingController();
   final productNameController = TextEditingController();
+  final skukuController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final weightController = TextEditingController();
+  final widthController = TextEditingController();
+  final lengthController = TextEditingController();
+  final heightController = TextEditingController();
   final priceController = TextEditingController();
   final searchFocus = FocusNode();
 
@@ -37,7 +43,8 @@ class _ListProductScreenState extends State<ListProductScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final listProduct = context.watch<ProductNotifier>().filteredProduct;
+    final productNotifier = context.watch<ProductNotifier>();
+    final listProduct = productNotifier.filteredProduct;
 
     return Scaffold(
       appBar: AppBar(
@@ -114,10 +121,16 @@ class _ListProductScreenState extends State<ListProductScreen> {
               child: AddProductDialog(
                 productNameController: productNameController,
                 priceController: priceController,
+                skuController: skukuController,
+                descriptionController: descriptionController,
+                weightController: weightController,
+                widthController: widthController,
+                lengthController: lengthController,
+                heightController: heightController,
               ),
             ),
           );
-          await context.read<ProductNotifier>().gettingProducts();
+          await productNotifier.gettingProducts();
         },
         tooltip: 'Add Product',
         child: const Icon(Icons.add),
