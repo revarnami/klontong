@@ -37,17 +37,17 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(color: Colors.black, fontSize: 14),
           titleSmall: TextStyle(
             color: Colors.black,
-            fontSize: 12,
+            fontSize: 14,
             fontWeight: FontWeight.bold,
           ),
           titleMedium: TextStyle(
             color: Colors.black,
-            fontSize: 14,
+            fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
           titleLarge: TextStyle(
             color: Colors.black,
-            fontSize: 16,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -94,11 +94,27 @@ class ProductRoute extends GoRouteData {
   path: '/product-detail',
 )
 class ProductDetailRoute extends GoRouteData {
-  const ProductDetailRoute(this.imageUrl, this.productName, this.price);
+  const ProductDetailRoute(
+    this.imageUrl,
+    this.productName,
+    this.price,
+    this.sku,
+    this.description,
+    this.weight,
+    this.width,
+    this.length,
+    this.height,
+  );
 
   final String imageUrl;
   final String productName;
   final int price;
+  final String sku;
+  final String description;
+  final int weight;
+  final int width;
+  final int length;
+  final int height;
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
@@ -106,5 +122,11 @@ class ProductDetailRoute extends GoRouteData {
         imageUrl: imageUrl,
         productName: productName,
         price: price,
+        sku: sku,
+        description: description,
+        weight: weight,
+        width: width,
+        length: length,
+        height: height,
       );
 }

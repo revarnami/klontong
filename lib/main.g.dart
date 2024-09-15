@@ -44,6 +44,12 @@ extension $ProductDetailRouteExtension on ProductDetailRoute {
         state.uri.queryParameters['image-url']!,
         state.uri.queryParameters['product-name']!,
         int.parse(state.uri.queryParameters['price']!),
+        state.uri.queryParameters['sku']!,
+        state.uri.queryParameters['description']!,
+        int.parse(state.uri.queryParameters['weight']!),
+        int.parse(state.uri.queryParameters['width']!),
+        int.parse(state.uri.queryParameters['length']!),
+        int.parse(state.uri.queryParameters['height']!),
       );
 
   String get location => GoRouteData.$location(
@@ -52,6 +58,12 @@ extension $ProductDetailRouteExtension on ProductDetailRoute {
           'image-url': imageUrl,
           'product-name': productName,
           'price': price.toString(),
+          'sku': sku,
+          'description': description,
+          'weight': weight.toString(),
+          'width': width.toString(),
+          'length': length.toString(),
+          'height': height.toString(),
         },
       );
 

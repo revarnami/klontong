@@ -18,7 +18,7 @@ class ListProductScreen extends StatefulWidget {
 class _ListProductScreenState extends State<ListProductScreen> {
   final searchController = TextEditingController();
   final productNameController = TextEditingController();
-  final skukuController = TextEditingController();
+  final skuController = TextEditingController();
   final descriptionController = TextEditingController();
   final weightController = TextEditingController();
   final widthController = TextEditingController();
@@ -90,6 +90,12 @@ class _ListProductScreenState extends State<ListProductScreen> {
                               product.image,
                               product.name,
                               product.price,
+                              product.sku,
+                              product.description,
+                              product.weight,
+                              product.width,
+                              product.length,
+                              product.height,
                             ).location,
                           );
                         },
@@ -121,7 +127,7 @@ class _ListProductScreenState extends State<ListProductScreen> {
               child: AddProductDialog(
                 productNameController: productNameController,
                 priceController: priceController,
-                skuController: skukuController,
+                skuController: skuController,
                 descriptionController: descriptionController,
                 weightController: weightController,
                 widthController: widthController,

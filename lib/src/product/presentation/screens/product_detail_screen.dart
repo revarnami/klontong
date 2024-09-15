@@ -6,11 +6,23 @@ class ProductDetailScreen extends StatefulWidget {
     required this.imageUrl,
     required this.productName,
     required this.price,
+    required this.sku,
+    required this.description,
+    required this.weight,
+    required this.width,
+    required this.length,
+    required this.height,
     super.key,
   });
 
   final String imageUrl;
   final String productName;
+  final String sku;
+  final String description;
+  final int weight;
+  final int width;
+  final int length;
+  final int height;
   final int price;
 
   @override
@@ -31,26 +43,70 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Detail Product'),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Image.network(widget.imageUrl),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Product Name: ${widget.productName}',
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.network(widget.imageUrl),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              '#${widget.sku}',
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            const SizedBox(
-              height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              widget.productName,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
-            Text(
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              widget.description,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              'Weight: ${widget.weight}',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              'Width: ${widget.width}',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              'Length: ${widget.length}',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              'Height: ${widget.height}',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
               'Price: ${widget.price}',
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
