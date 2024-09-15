@@ -84,8 +84,8 @@ class _ListProductScreenState extends State<ListProductScreen> {
                     itemBuilder: (context, index) {
                       final product = listProduct[index];
                       return ListTile(
-                        onTap: () {
-                          context.push(
+                        onTap: () async {
+                          await context.push(
                             ProductDetailRoute(
                               product.image,
                               product.name,
@@ -98,6 +98,7 @@ class _ListProductScreenState extends State<ListProductScreen> {
                               product.height,
                             ).location,
                           );
+                          await productNotifier.gettingProducts();
                         },
                         leading: Image.network(product.image),
                         title: Column(
